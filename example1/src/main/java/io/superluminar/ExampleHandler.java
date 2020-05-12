@@ -13,7 +13,7 @@ public class ExampleHandler implements RequestHandler<APIGatewayProxyRequestEven
         Gson gson = new Gson();
         Data data = gson.fromJson(input.getBody(), Data.class);
         LambdaLogger logger = context.getLogger();
-        logger.log(data.toString());
+        logger.log(input.toString());
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
         response.setStatusCode(200);
         response.setBody(gson.toJson(data));
